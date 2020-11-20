@@ -1,23 +1,17 @@
-package com.amazon.testcases;
+package com.progressive.testcases;
 
-import com.amazon.pages.QuotePage;
-import com.amazon.pages.VihicleInformationPage;
-import com.amazon.utils.CommonMethods;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.progressive.utils.CommonMethods;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class GetQuoteTest extends CommonMethods {
 
     @Test
-    public void calculateQuote() {
+    public void calculateQuote() throws InterruptedException {
         sendText(quotePage.zipCode, "20877");
         click(quotePage.productName);
         click(quotePage.autoOption);
-        click(quotePage.autoPlusHomeOption);
+        click(quotePage.moduleHome);
         click(quotePage.getQuoteButton);
 
         Assert.assertTrue(personalInformation.persuasionHeader.isDisplayed());
@@ -25,7 +19,11 @@ public class GetQuoteTest extends CommonMethods {
         sendText(personalInformation.firstNameInput, "Igor");
         sendText(personalInformation.lastNameInput, "Trushkov");
         sendText(personalInformation.dateOfBirthInput, "03071991");
-        sendText(personalInformation.streetNameInput, "Tulip Dr 216");
+        click(personalInformation.persuasionHeader);
+
+        Thread.sleep(2000);
+
+        sendText(personalInformation.streetNameInput, "216 Tulip Dr");
         sendText(personalInformation.cityNameInput, "Gaithersburg");
         sendText(personalInformation.zipcodeInput, "20877");
         click(personalInformation.startMyQuoteBtn);

@@ -1,13 +1,14 @@
-package com.amazon.pages;
+package com.progressive.pages;
 
-import com.amazon.utils.CommonMethods;
+import com.progressive.testbase.BaseClass;
+import com.progressive.utils.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class VihicleInformationPage extends CommonMethods {
+public class VihicleInformationPage extends BaseClass {
 
     @FindBy(css = "h1.text")
     public WebElement headerText;

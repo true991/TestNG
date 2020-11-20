@@ -1,12 +1,12 @@
-package com.amazon.pages;
+package com.progressive.pages;
 
-import com.amazon.testbase.BaseClass;
-import com.amazon.utils.CommonMethods;
+import com.progressive.testbase.BaseClass;
+import com.progressive.utils.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class QuotePage extends CommonMethods {
+public class QuotePage extends BaseClass {
 
     @FindBy(id = "zipCode")
     public WebElement zipCode;

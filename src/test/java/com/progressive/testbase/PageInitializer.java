@@ -1,8 +1,8 @@
-package com.amazon.testbase;
+package com.progressive.testbase;
 
-import com.amazon.pages.PersonalInformationPage;
-import com.amazon.pages.QuotePage;
-import com.amazon.pages.VihicleInformationPage;
+import com.progressive.pages.PersonalInformationPage;
+import com.progressive.pages.QuotePage;
+import com.progressive.pages.VihicleInformationPage;
 
 public class PageInitializer extends BaseClass{
 
@@ -11,7 +11,7 @@ public class PageInitializer extends BaseClass{
     protected static VihicleInformationPage vihicleInformationPage;
 
 
-    public void initializePages() {
+    public static void initializePages() {
         personalInformation = new PersonalInformationPage();
         quotePage = new QuotePage();
         vihicleInformationPage = new VihicleInformationPage();

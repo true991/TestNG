@@ -1,7 +1,7 @@
-package com.amazon.testbase;
+package com.progressive.testbase;
 
-import com.amazon.utils.ConfigReader;
-import com.amazon.utils.Constants;
+import com.progressive.utils.ConfigReader;
+import com.progressive.utils.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -42,6 +42,7 @@ public class BaseClass {
         }
         driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        PageInitializer.initializePages();
         driver.get(ConfigReader.getPropValue("url"));
     }
 

@@ -1,12 +1,12 @@
-package com.amazon.pages;
+package com.progressive.pages;
 
-import com.amazon.testbase.BaseClass;
-import com.amazon.utils.CommonMethods;
+import com.progressive.testbase.BaseClass;
+import com.progressive.utils.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PersonalInformationPage extends CommonMethods {
+public class PersonalInformationPage extends BaseClass {
 
     @FindBy(css = "span.persuasion-header")
     public WebElement persuasionHeader;
@@ -20,7 +20,7 @@ public class PersonalInformationPage extends CommonMethods {
     @FindBy(css = "input#NameAndAddressEdit_embedded_questions_list_DateOfBirth")
     public WebElement dateOfBirthInput;
 
-    @FindBy(css = "input#NameAndAddressEdit_embedded_questions_list_MailingAddress")
+    @FindBy(css = "[placeholder*='number &'] input")
     public WebElement streetNameInput;
 
     @FindBy(css = "input#NameAndAddressEdit_embedded_questions_list_ApartmentUnit")

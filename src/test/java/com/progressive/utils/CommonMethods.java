@@ -1,13 +1,8 @@
-package com.amazon.utils;
+package com.progressive.utils;
 
-import com.amazon.testbase.BaseClass;
-import com.amazon.testbase.PageInitializer;
-import org.openqa.selenium.JavascriptException;
+import com.progressive.testbase.PageInitializer;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,8 +17,9 @@ public class CommonMethods extends PageInitializer {
      * @param text
      */
     public static void sendText(WebElement element, String text) {
+        waitForVisability(element);
         element.clear();
-        element.sendKeys();
+        element.sendKeys(text);
     }
 
     /**
@@ -35,6 +31,9 @@ public class CommonMethods extends PageInitializer {
         return js;
     }
 
+    public static void waiting(WebElement element) {
+        getWaitObject().until(ExpectedConditions.stalenessOf(element));
+    }
     /**
      * The method performs click using JavaScriptExecutor
      * @param element
@@ -42,6 +41,12 @@ public class CommonMethods extends PageInitializer {
     public static void jsClick(WebElement element) {
         getJSExecutor().executeScript("argument[0].click;",element);
     }
+
+    public static void jsSendKeys(WebElement element, String value) {
+        element.clear();
+        getJSExecutor().executeScript("arguments[0].value='"+ value +"';", element);
+    }
+
 
     /**
      * The method returns WebDriverWait object
@@ -57,6 +62,10 @@ public class CommonMethods extends PageInitializer {
      */
     public static void waitForClickability(WebElement element) {
         getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void waitForVisability(WebElement element) {
+        getWaitObject().until(ExpectedConditions.visibilityOf(element));
     }
 
     /**

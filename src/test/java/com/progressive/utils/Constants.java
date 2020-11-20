@@ -1,4 +1,4 @@
-package com.amazon.utils;
+package com.progressive.utils;
 
 public class Constants {
 
